@@ -81,6 +81,7 @@ ul li:hover {
     border-radius: 25px;
     border: 1px solid;
     border-color: #df3e56;
+    cursor: pointer;
 }
 
 #start:hover {
