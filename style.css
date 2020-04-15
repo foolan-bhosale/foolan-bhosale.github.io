@@ -91,18 +91,17 @@ ul li:hover {
 
 #next {
     display: none;
-    margin-top: 50px;
-    margin-left: 320px;
+    /* margin-top: auto; */
+
     border: 2px solid hsl(205, 30%, 92%);
     font-size: 30px;
     letter-spacing: 0.1rem;
-    width: 120px;
+
     height: 50px;
     background-color: white;
     color: black;
     font-family: 'Fugaz One', cursive;
-    border-radius: 10px;
-    max-width: 100%;
+    border-radius: 30px;
 }
 
 #next:hover {
@@ -116,7 +115,7 @@ ul li:hover {
     position: absolute;
     top: 20px;
     left: 10px;
-    margin: 150px 60px 0 0;
+    margin: 150px 0 100px 0;
     display: none;
     padding: 10px;
 
@@ -135,7 +134,7 @@ ul li:hover {
     position: absolute;
     top: 20px;
     right: 10px;
-    margin: 150px 60px 0 0;
+    margin: 150px 0 100px 0;
     display: none;
     padding: 10px;
 
@@ -170,7 +169,8 @@ ul li:hover {
 
 .answer-container {
     /* position: relative; */
-    width: 50%;
+    max-width: 800px;
+    grid-template-columns: 100%;
     margin: auto;
     margin-bottom: 20px;
     /* padding: 0 25px 40px 10px; */
@@ -248,7 +248,7 @@ header h1 {
 
 section h2 {
     /* border: 1px solid black; */
-    margin-top: 2px;
+    margin-top: 100px;
     font-family: 'Lexend Deca', sans-serif;
     font-size: 3rem;
 }
@@ -286,6 +286,7 @@ a:hover {
 
 #button {
     margin-top: 100px;
+    width: 50%;
 }
 #button a:hover {
     color: #fa4542;

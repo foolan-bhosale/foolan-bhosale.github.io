@@ -78,8 +78,8 @@ class Quiz {
 
     // getting Index of the question method
 
-    getQuestionIndex() {
-        return this.questionIndex++;
+    incrementQuestionIndex() {
+        this.questionIndex++;
     }
     // increase score method
     increaseScore() {
@@ -218,6 +218,8 @@ function displayQuestion() {
         label.addEventListener('click', function(event) {
             let clickedAnswer = event.target.value;
 
+            //hide quiz container
+            quizContainer.style.display = 'none';
             // console.log(event.target.value);
 
             scoreContainer.classList.remove('score-change');
@@ -227,15 +229,14 @@ function displayQuestion() {
                 // increasing score if answer is correct by calling increaseScore() function
                 let currentScore = quiz.increaseScore();
 
-                //
                 scoreContainer.innerHTML = `Score: ${currentScore}`;
                 scoreContainer.classList.add('score-change');
                 //css style
-                answerContainer.style.display = 'block';
+                answerContainer.style.display = 'grid';
                 showAnswer.innerHTML = `Good one! You are correct.`;
             } else {
                 //css style
-                answerContainer.style.display = 'block';
+                answerContainer.style.display = 'grid';
 
                 //if answer is wrong display answer of current question .
                 showAnswer.innerHTML = `Oops..!<br>The Correct Answer is: <strong>${quiz.getNextQuestion()
@@ -251,7 +252,9 @@ function displayQuestion() {
 // target next button and add event listener to it, so quiz gets it's next index of objects of  an array
 
 nextButton.addEventListener('click', function(e) {
-    let nextQuestion = quiz.getQuestionIndex();
+    //display quiz container
+    quizContainer.style.display = 'block';
+    quiz.incrementQuestionIndex();
     showAnswer.innerHTML = '';
     answerContainer.style.display = 'none';
     if (quiz.isGameFinished()) {
@@ -268,10 +271,12 @@ resetButton.addEventListener('click', resetGame);
 
 // function to reset the quiz
 function resetGame() {
+    //hide quiz container
+    quizContainer.style.display = 'none';
     if (quiz.isGameFinished()) {
         // displaying current score of attempted question
         resetContainer.innerHTML = `<h1>Game is over</h1><h3>Your total score is: ${quiz.score} out of 20 questions.</h3> <button id ='reset' onclick='window.location.href="index.html"'>Reset Game</button><br>
-        <h3 id='button'><a href='https://generalassemb.ly/' target='_blank'>Learn More</a></h3>`;
+        <h3 id='button'><a href='https://generalassemb.ly/' target='_blank'> Want to learn More?</a></h3>`;
 
         // reset question index to 0
         quiz.questionIndex = 0;
